@@ -13,7 +13,7 @@
 /* content2 continues the left float; it will sit at the right side of content1 */
 
 .content2 {
-  float: left;
+  float: right;
 }
 
 
