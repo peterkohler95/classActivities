@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="UTF-8">
+    <title>My First Object</title>
+</head>
+
+<body>
+
+    <script>
+
+        var car = {
+            make: "Honda",
+            model: "Fit",
+            color: "Blue Raspberry",
+            mileage: 3000,
+            isWorking: true,
+
+            driveToWork: function () {
+
+                alert("Old Mileage: " + this.mileage);
+
+                this.mileage = this.mileage + 8;
+
+                alert("New mileage: " + this.mileage);
+            },
+
+            driveAroundWorld: function () {
+
+                alert("Old Mileage: " + this.mileage);
+
+                this.mileage = this.mileage + 24000;
+
+                alert("New Mileage: " + this.mileage);
+                alert("Car needs a tuneup!");
+
+                this.isWorking = false;
+            },
+
+            getTuneUp: function () {
+                alert("Car is ready to go!");
+                this.isWorking = true;
+            },
+
+            honk: function () {
+                alert("Honk! Honk!");
+            }
+        };
+
+        function reWriteStats() {
+            console.log(car.make);
+            console.log(car.model);
+            console.log(car.color);
+            console.log(car.mileage);
+            console.log(car.isWorking);
+        }
+
+
+        // How would we log...
+
+        // The car's make?
+        // Press 'a'
+        // This function is run whenever the user presses a key.
+        document.onkeyup = function (event) {
+            // Determines which key was pressed.
+            var userInput = event.key;
+
+            switch (userInput) {
+
+                case 'd':
+                    car.driveToWork();
+                    reWriteStats();
+                    break;
+                case 'w':
+                    car.driveAroundWorld();
+                    reWriteStats();
+                    break;
+                case 'g':
+                    car.getTuneUp();
+                    reWriteStats();
+            }
+
+
+        }
+
+    </script>
+
+</body>
+
+</html>
