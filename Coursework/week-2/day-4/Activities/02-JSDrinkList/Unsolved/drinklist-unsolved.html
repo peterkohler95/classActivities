@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JavaScript Content!</title>
 </head>
+
 <body>
 
   <h1>Drink Selection!</h1>
@@ -30,6 +32,8 @@
     // 1. Create code that "grabs" the div with the matching id (#drink-options);
     // ...
 
+    var drinkOptions = document.querySelector("#drink-options");
+
 
     // ...
 
@@ -39,9 +43,22 @@
     // ...
 
 
-    // ...
+
+    drinkList.forEach(function (element) {
+      var newDiv = document.createElement('div');
+      newDiv.textContent = element;
+      drinkOptions.appendChild(newDiv);
+    });
+
+
+
+
+
+
+
 
   </script>
 
 </body>
+
 </html>
