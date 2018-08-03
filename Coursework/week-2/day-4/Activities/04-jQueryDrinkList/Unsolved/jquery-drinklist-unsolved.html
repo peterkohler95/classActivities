@@ -1,15 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <title>JavaScript Content!</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
+
 <body>
 
   <h1>Drink Selection!</h1>
   <hr>
 
-  <div id="drink-options"></div>
+
+  <div id="empty-div"></div>
 
   <script type="text/javascript">
 
@@ -28,8 +32,22 @@
     // Using JavaScript programmatically append each drinkList item to the "drink-options" div
     // HINT: you will need a for loop to go over each element in the list
 
+    // This line of jQuery selects the div with the matching id (#drink-options)
+    var drinkDiv = $("#empty-div");
+
+    // For Loop then loops through our total drink list...
+    for (var i = 0; i < drinkList.length; i++) {
+
+      // It then creates a new div for each drink. Note we create divs and add the content in the same line.
+      var newDrinkDiv = $("<div>" + drinkList[i] + "</div>");
+
+      // It then adds this new div to the drinkList div.
+      drinkDiv.append(newDrinkDiv);
+    }
+
 
   </script>
 
 </body>
+
 </html>
