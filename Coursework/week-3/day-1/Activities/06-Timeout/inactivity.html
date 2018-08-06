@@ -1,0 +1,48 @@
+<!--
+    Create HTML
+    JQUER
+    SCRIPT
+
+    Outside of the event listener, start a timer
+
+    Add an event listener (on key up)
+        if the user types any key, clear the timer
+        then set a new timer
+
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src='https://code.jquery.com/jquery-3.3.1.min.js' integrity='sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8='
+        crossorigin='anonymous'></script>
+</head>
+
+<body>
+    <script>
+
+        var myVar = createTimer();
+
+        $(document).keyup(function () {
+
+            clearTimeout(myVar);
+            myVar = createTimer();
+        });
+
+        function createTimer() {
+            return setTimeout(function () {
+                alert("You are being logged out");
+            }, 5000);
+        }
+
+
+    </script>
+
+</body>
+
+</html>

@@ -14,8 +14,10 @@
 
   <h1>Click to Eat Sandwich</h1>
   <h3 id="pbj">Peanut Butter Jelly</h3>
-  <h3 id="grilledcheese">Grilled Cheese</h3>
-  <h3 id="roastbeef">Roast Beef</h3>
+  <h3 id="grilledCheese">Grilled Cheese</h3>
+  <h3 id="roastBeef">Roast Beef</h3>
+  <img id="foodImg" src="" alt="">
+
 
   <script type="text/javascript">
 
@@ -23,28 +25,53 @@
     // This code makes sure that the JavaScript doesn't get run until the HTML is finished loading
     // It's useful to become familiar with now.
 
-    $(document).ready(function() {
+    $(document).ready(function () {
 
       // VARIABLES
       // ====================================================================
       // Here we create variables for tracking the number of sandwiches eaten
       // ...
+      var pbjVar = 0;
+      var gcVar = 0;
+      var rbVar = 0;
 
-
-      // ...
 
       // FUNCTIONS
       // ====================================================================
       // Here we create various on "click" functions which capture the clicks
       // Inside each click event is the code to create an alert, update the counter, then show the updated count.
       // ...
+      $("#pbj").on("click", function () {
+        alert("You just ate a PBJ");
+        pbjVar++;
+        alert("You've eaten " + pbjVar + " PBJ's");
+
+        $("#foodImg").attr("src", "https://img.aws.livestrongcdn.com/ls-article-image-673/ds-photo/getty/article/217/91/137514414.jpg");
 
 
-      // ...
+      });
+
+      $("#grilledCheese").on("click", function () {
+        alert("You just ate a grilled cheese");
+        gcVar++;
+        alert("You've eaten " + gcVar + " grilled cheeses");
+
+        $("#foodImg").attr("src", "https://www.seriouseats.com/recipes/images/2013/04/20130416-grilled-cheese-variations-2-10.jpg");
+
+      });
+
+      $("#roastBeef").on("click", function () {
+        alert("You just ate a roast beef sandwich");
+        rbVar++;
+        alert("You've eaten " + rbVar + " roast beef sandwiches");
+
+        $("#foodImg").attr("src", "https://media-cdn.tripadvisor.com/media/photo-s/0b/93/cc/d7/buona-beef.jpg");
+      });
+
 
     });
 
-</script>
+  </script>
 
 </body>
 
