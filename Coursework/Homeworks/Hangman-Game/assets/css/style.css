@@ -1,0 +1,27 @@
+* {
+    margin: 0;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    background-image: url("http://attstadium.com/sites/default/files/2016-09/StadiumVenuePhoto_1920x1080_2.jpg");
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.header {
+    background-color: aliceblue;
+    height: 120px;
+}
+
+h1 {
+    padding: 10px;
+}
+p {
+    padding: 10px;
+}
