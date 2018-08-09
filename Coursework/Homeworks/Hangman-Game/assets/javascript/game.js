@@ -3,7 +3,7 @@ var wins = 0;
 var losses = 0;
 var guessesLeft = 4;
 var alreadyGuessed = [];
-var teams = ["Cardinals", "Falcons", "Ravens", "Bills", "Panthers", "Bears", "Bengals", "Browns", "Cowboys", "Bronocs", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Raiders", "Eagles", "Steelers", "Chargers", "49ers", "Seahawks", "Rams", "Buccaneers", "Titans", "Redskins"];
+var teams = ["Cardinals", "Falcons", "Ravens", "Bills", "Panthers", "Bears", "Bengals", "Browns", "Cowboys", "Broncos", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Raiders", "Eagles", "Steelers", "Chargers", "49ers", "Seahawks", "Rams", "Buccaneers", "Titans", "Redskins"];
 clicks = 0;
 
 
@@ -24,6 +24,7 @@ blank = blankSpaces(team);
 
 
 console.log(blank);
+console.log(team);
 
 
 // Varirables to html
@@ -32,7 +33,7 @@ $("#lossesSpan").text(losses);
 $("#guessesLeftSpan").text(guessesLeft);
 $("#hangmanDiv").text(blank);
 
-console.log(team);
+
 
 // Key up function
 $(document).ready(function () {
@@ -41,12 +42,10 @@ $(document).ready(function () {
         if (event.keyCode >= 65 && event.keyCode <= 90) {
             var userGuess = event.key.toUpperCase();
             hangman(userGuess);
-            console.log(blank);
+            $("#alreadyGuessedSpanId").text(alreadyGuessed);
         } else if (event.keyCode >= 48 && event.keyCode <= 57) {
             userGuess = event.key;
         }
-
-
     });
 });
 
@@ -62,8 +61,7 @@ function hangman(userGuessInput) {
         }
     }
     if (fired === true) {
-        console.log(blank);
-        console.log(team);
+
         rightWord(blank);
     }
     if (fired === false) { //guess was not correct
@@ -109,7 +107,10 @@ function guessesLeftFunc(x) {
 
 // Right word function
 function rightWord(input) {
-    if (input === team) {
+    stringInput = JSON.stringify(input);
+    stringTeam = JSON.stringify(team)
+
+    if (stringInput === stringTeam) {
         wins++;
         $("#winsSpan").text(wins);
         guessesLeft = 4;

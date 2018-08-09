@@ -39,3 +39,13 @@ p {
     height: 300px;
     float: left;
 }
+
+.clearfix {
+    overflow: auto;
+}
+
+#alreadyGuessedId {
+    width: 80%;
+    background-color: aliceblue;
+}
+
