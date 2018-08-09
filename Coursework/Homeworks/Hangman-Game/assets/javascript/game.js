@@ -2,7 +2,7 @@
 var wins = 0;
 var losses = 0;
 var guessesLeft = 4;
-alreadyGuessed = [];
+var alreadyGuessed = [];
 var teams = ["Cardinals", "Falcons", "Ravens", "Bills", "Panthers", "Bears", "Bengals", "Browns", "Cowboys", "Bronocs", "Lions", "Packers", "Texans", "Colts", "Jaguars", "Chiefs", "Dolphins", "Vikings", "Patriots", "Saints", "Giants", "Jets", "Raiders", "Eagles", "Steelers", "Chargers", "49ers", "Seahawks", "Rams", "Buccaneers", "Titans", "Redskins"];
 clicks = 0;
 
@@ -52,6 +52,7 @@ $(document).ready(function () {
 
 // Hangman logic function
 function hangman(userGuessInput) {
+
     fired = false;
     for (i = 0; i < team.length; i++) {
         if (userGuessInput === team[i]) {
@@ -60,35 +61,63 @@ function hangman(userGuessInput) {
             fired = true;
         }
     }
+    if (fired === true) {
+        console.log(blank);
+        console.log(team);
+        rightWord(blank);
+    }
     if (fired === false) { //guess was not correct
-        // is this our first wrong guess?
+        // is this our first wrong guess? If so, reduce guesses left and add letter to already guessed array
 
         if (clicks === 1) {
             guessesLeft--;
             $("#guessesLeftSpan").text(guessesLeft);
             alreadyGuessed.push(userGuessInput);
-            console.log(alreadyGuessed);
+            guessesLeftFunc(guessesLeft);
 
         } else { //this was not our first guess
             // have we guessed this letter before?
             fired2 = false;
             for (i = 0; i < alreadyGuessed.length; i++) {
-                if (userGuessInput === alreadyGuessed[i]) {
+                if (userGuessInput === alreadyGuessed[i]) { //has this guess already been gueessed before?
                     fired2 = true;
-                    console.log("test2 " + alreadyGuessed);
                 }
             };
-            if (fired2 === false) {
+            if (fired2 === false) { // Guess was not already guessed. Add letter to already guessed array and reduce guesses left
                 guessesLeft--;
                 $("#guessesLeftSpan").text(guessesLeft);
                 alreadyGuessed.push(userGuessInput);
-                console.log("test " + alreadyGuessed);
-
+                guessesLeftFunc(guessesLeft);
             }
         }
+    }
+}
 
+// Guesses left function
+function guessesLeftFunc(x) {
+    if (x === 0) {
+        losses++;
+        $("#lossesSpan").text(losses);
+        guessesLeft = 4;
+        $("#guessesLeftSpan").text(guessesLeft);
+        alreadyGuessed = [];
+        team = pickTeam();
+        blank = blankSpaces(team);
+        $("#hangmanDiv").text(blank);
+    }
+}
 
-
+// Right word function
+function rightWord(input) {
+    if (input === team) {
+        wins++;
+        $("#winsSpan").text(wins);
+        guessesLeft = 4;
+        $("#guessesLeftSpan").text(guessesLeft);
+        alreadyGuessed = [];
+        team = pickTeam();
+        blank = blankSpaces(team);
+        $("#hangmanDiv").text(blank);
     }
 }
 
