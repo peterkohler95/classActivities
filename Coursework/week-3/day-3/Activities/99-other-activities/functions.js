@@ -36,3 +36,29 @@ function bubbleSort(array) {
 
 console.log(bubbleSort(myArray));
 
+// Ask Poornima 
+
+// Key up function
+$(document).ready(function () {
+    $(document).keyup(function () {
+        if (event.keyCode >= 65 && event.keyCode <= 90) {
+            var userGuess = event.key.toUpperCase();
+            hangman(userGuess);
+        } else if (event.keyCode >= 48 && event.keyCode <= 57) {
+            userGuess = event.key;
+            hangman();
+        }
+    });
+});
+
+
+
+// Hangman logic function
+function hangman(x) {
+    console.log(x);
+}
+
+// OR
+function hangman() {
+    console.log(userGuess)
+}

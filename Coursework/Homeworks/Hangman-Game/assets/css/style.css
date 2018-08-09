@@ -25,3 +25,17 @@ h1 {
 p {
     padding: 10px;
 }
+
+#winLossDiv {
+    background-color: antiquewhite;
+    width: 40%;
+    height: 300px;
+    float: left;
+}
+
+#hangmanDiv {
+    background-color: aliceblue;
+    width: 40%;
+    height: 300px;
+    float: left;
+}
