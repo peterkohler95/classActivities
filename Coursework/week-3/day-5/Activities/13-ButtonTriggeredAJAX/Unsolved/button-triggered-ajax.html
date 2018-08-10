@@ -12,8 +12,7 @@
       I'll be back
     </button>
     <button data-person="michael j fox">
-      My happiness grows in direct proportion to my acceptance,
-      and in inverse proportion to my expectations.
+      My happiness grows in direct proportion to my acceptance, and in inverse proportion to my expectations.
     </button>
 
     <!-- STEP ONE: Open this file in the browser and click on the buttons. Watch what happens -->
@@ -26,6 +25,17 @@
     <!-- **************************************** -->
 
     <!-- YOUR BUTTONS GO HERE!!!!!! Obviously delete this text after you put them between the dashed lines here.  -->
+    <button data-person="Ron Burgandy">
+      I saw that! Brick killed a guy. Did you throw a trident?
+    </button>
+    <button data-person="John Belushi">
+      Oh no! Seven years of college down the drain!
+
+    </button>
+    <button data-person="Tom Cruise">
+      I was inverted
+    </button>
+
 
     <!-- **************************************** -->
 
@@ -41,7 +51,7 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script type="text/javascript">
-    $("button").on("click", function() {
+    $("button").on("click", function () {
       var person = $(this).attr("data-person");
       var queryURL = "https://api.giphy.com/v1/gifs/search?q=" +
         person + "&api_key=dc6zaTOxFJmzC&limit=10";
@@ -50,7 +60,7 @@
         url: queryURL,
         method: "GET"
       })
-        .then(function(response) {
+        .then(function (response) {
           var results = response.data;
 
           for (var i = 0; i < results.length; i++) {
