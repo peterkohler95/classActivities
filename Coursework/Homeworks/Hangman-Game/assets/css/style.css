@@ -34,10 +34,11 @@ p {
 }
 
 #hangmanDiv {
-    background-color: aliceblue;
+    background-color: lightcoral;
     width: 40%;
-    height: 300px;
     float: left;
+    text-align: center;
+    padding: 100px 0;
 }
 
 .clearfix {
