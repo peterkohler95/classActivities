@@ -1,0 +1,20 @@
+#triviaGame {
+    width: 75%;
+    height: 50vh;
+    margin: auto;
+    background-color: aquamarine;
+}
+
+#title {
+    text-align: center;
+    color: aliceblue;
+}
+
+#startId {
+    text-align: center;
+}
+
+.btn {
+    margin: 70px 0 0 0;
+}
+
