@@ -6,6 +6,8 @@
 // var database = ...
 
 
+
+
 // Use the below initialValue
 var initialValue = 100;
 
@@ -18,7 +20,10 @@ var clickCounter = initialValue;
 // This callback keeps the page updated when a value changes in firebase.
 // HINT: Assuming 'database' is our database variable, use...
 // database.ref().on("value", function(snapshot)) {}
-
+database.ref().on("value", function (snapshot) {
+  console.log(snapshot.val());
+  clickCounter = snapshot.val();
+});
 // We are now inside our .on function...
 
 // Console.log the "snapshot" value (a point-in-time representation of the database)
@@ -38,7 +43,7 @@ var clickCounter = initialValue;
 // --------------------------------------------------------------
 
 // Whenever a user clicks the click button
-$("#click-button").on("click", function() {
+$("#click-button").on("click", function () {
 
   // Reduce the clickCounter by 1
   clickCounter--;
@@ -61,7 +66,7 @@ $("#click-button").on("click", function() {
 });
 
 // Whenever a user clicks the restart button
-$("#restart-button").on("click", function() {
+$("#restart-button").on("click", function () {
 
   // Set the clickCounter back to initialValue
   clickCounter = initialValue;
