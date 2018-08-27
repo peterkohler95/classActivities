@@ -14,3 +14,35 @@
 // Remember to be creative!
 
 // ========================================================================
+var inquirer = require('inquirer');
+inquirer
+    .prompt([
+        /* Pass your questions in here */
+        {
+            type: "input",
+            message: "what is your fav country?",
+            name: "favCountry"
+        },
+        {
+            type: "password",
+            message: "Set your password",
+            name: "password"
+        },
+        {
+            type: "list",
+            message: "Which continent do you choose?",
+            choices: ["North America", "South America", "Europe", "Africa", "Australia"],
+            name: "list"
+        },
+        {
+            type: "checkbox",
+            message: "check which countries you've been to",
+            choices: ["France", "Brazil", "Kenya"],
+            name: "checkbox"
+        }
+
+    ])
+    .then(answers => {
+        // Use user feedback for... whatever!!
+        console.log(answers)
+    });

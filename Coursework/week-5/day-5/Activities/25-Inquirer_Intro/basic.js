@@ -43,7 +43,7 @@ inquirer
       default: true
     }
   ])
-  .then(function(inquirerResponse) {
+  .then(function (inquirerResponse) {
     // If the inquirerResponse confirms, we displays the inquirerResponse's username and pokemon from the answers.
     if (inquirerResponse.confirm) {
       console.log("\nWelcome " + inquirerResponse.username);
