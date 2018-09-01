@@ -91,12 +91,13 @@ function postItemFunc() {
 // =====================================
 // Bid Func
 function bidFunc() {
+    connection.query()
     inquirer
         .prompt([
             {
                 type: "input",
                 name: "name",
-                message: "What is the name of your item?"
+                message: "What item would you like to bid on?"
             }
         ])
         .then(function (answer) {
